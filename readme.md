@@ -2,11 +2,8 @@
 
 - Java
 - Spring Boot
-- Bootstrap - just to not waste my time with styling
 - Thymeleaf
-
-
-
+- Bootstrap
 
 # Features
 
@@ -17,9 +14,4 @@
 
 - Small and stupid project to learn basic of spring boot.
 
-- I dont like having template engine in my project such as Thymeleaf I would prefer to have backend decoupled from frontend and just communicate throught REST API, so my next project is gonna be like that
-
-
-# Screenshots
-
-- Will add this later
+- I don't like having template engine in my project such as Thymeleaf I would prefer to have backend decoupled from frontend and just communicate throught REST API, so my next project is gonna be like that

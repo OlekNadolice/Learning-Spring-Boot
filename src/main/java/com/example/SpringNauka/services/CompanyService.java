@@ -25,10 +25,10 @@ public class CompanyService {
     private final CompanyRepository companyRepository;
 
     @Autowired
-    private  final EmployeeRepository employeeRepository;
+    private final EmployeeRepository employeeRepository;
 
     @Autowired
-    private  final AddressRepository addressRepository;
+    private final AddressRepository addressRepository;
 
     public List<Company> getCompanies() {
         return this.companyRepository.findAll();
@@ -42,9 +42,9 @@ public class CompanyService {
 
 
     public void createCompany(CreateCompanyDTO company) {
-       Company cp = new Company();
-       cp.setName(company.getCompanyName());
-       this.companyRepository.save(cp);
+        Company cp = new Company();
+        cp.setName(company.getCompanyName());
+        this.companyRepository.save(cp);
 
     }
 
@@ -54,11 +54,11 @@ public class CompanyService {
     }
 
     public List<Employee> getEmployeesForCompany(Long companyId) {
-      return  this.companyRepository.findAllEmployeesForCompany(companyId);
+        return this.companyRepository.findAllEmployeesForCompany(companyId);
 
     }
 
-    public void addEmployeeToCompany(Long companyId,  AddEmployeeToCompanyDTO employee) {
+    public void addEmployeeToCompany(Long companyId, AddEmployeeToCompanyDTO employee) {
         var company = this.companyRepository.findById(companyId);
         company.ifPresent(c -> {
             Employee e = new Employee();
@@ -68,12 +68,8 @@ public class CompanyService {
             e.setLastName(employee.getLastName());
             e.setCompany(c);
             e.setAddress(address);
-            List<Employee> employees = c.getEmployees();
-            employees.add(e);
-            c.setEmployees(employees);
+            this.employeeRepository.save(e);
 
-
-     this.companyRepository.save(c);
         });
 
     }
